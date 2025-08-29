@@ -29,9 +29,5 @@ Algorithm Study
 - PR 제목 : 이름/주차/요일
 
 # Commit Convention
-- commit Message : \[문제 출처(플랫폼)\] 문제이름 / 처리 속도
-   - 플랫폼
-      - \[BOJ\] : 백준
-      - \[PGS\] : 프로그래머스
-      - \[LTC\] : 리트코드
+- commit Message : \ 문제이름 / 처리 속도
 
