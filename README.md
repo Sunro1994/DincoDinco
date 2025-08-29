@@ -18,7 +18,7 @@ Algorithm Study
 
 | 주차 | 주제 | 문제 리스트 링크 | 
 | :--: | :--: | :--: |
-| 1주차 | Array /LinkedList | []() |
+| 1주차 | Array /LinkedList | [링크](https://github.com/Sunro1994/DincoDinco/tree/main/array) |
 | 2주차 | 이진 탐색 / 재귀 함수  | []() |
 | 3주차 | 정렬/ 스택 | []() |
 | 4주차 | 큐/ 해시 | []() |
