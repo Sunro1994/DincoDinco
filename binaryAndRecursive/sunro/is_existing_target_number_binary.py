@@ -6,13 +6,12 @@ def is_existing_target_number_binary(target, arrays):
     current_max = len(arrays) -1
     current_guess = (current_min + current_max) //2
 
-    while current_min <= current_max:
-        if arrays[current_guess] == target:
-            return True
-        elif arrays[current_guess] < target:
-            current_min = current_guess + 1
-        else:
-            current_max = current_guess - 1
-        current_guess = (current_min + current_max) //2
-    return False
 
+    if arrays[current_guess] == target:
+        return True
+    elif arrays[current_guess] < target:
+        current_min = current_guess + 1
+    else:
+        current_max = current_guess - 1
+
+    return False
