@@ -1,31 +1,32 @@
 def solution(progresses, speeds):
     answer = []
-    rest_progress_rate = []
-    for i in range(len(progresses)):
-        rest_progress_rate.append(100 - progresses[i])
-
+    rest_progress = []
+    #1. rest_progress= progress의 100 - 각 값
+    for progress in progresses:
+        rest_progress.append(100-progress)
+    #2. share = speeds로 나눈 값 (나머지가 있는경우 +1)
     rest_day = []
-    for i in range(len(speeds)):
-        share = rest_progress_rate[i] // speeds[i]
-        remainder = rest_progress_rate[i] % speeds[i]
-        if remainder > 0:
-            share += 1
-        rest_day.append(share)
+    print("rest_progress : " , rest_progress)
+    for i in range(len(rest_progress)):
+        devide = rest_progress[i] // speeds[i]
+        share = rest_progress[i] % speeds[i]
+        if share >0:
+            devide = devide + 1
+        rest_day.append(devide)
+    print("rest_day : " , rest_day)
 
-    if not rest_day:
-        return []
-
-    cnt = 0
-    max_day = rest_day[0] # 첫 번째 작업을 배포 기준일로 설정
-
-    for day in rest_day:
-        if day <= max_day: # 기준일보다 빨리 끝나면 같은 배포 그룹에 포함
-            cnt += 1
-        else: # 기준일보다 오래 걸리면
-            answer.append(cnt) # 이전까지의 그룹을 배포
-            cnt = 1 # 새로운 그룹 시작
-            max_day = day # 기준일을 새로 설정
-
-    answer.append(cnt) # 마지막 그룹을 answer에 추가
-
+    #3. rest_day를 순회(0번째 인덱스를 기준으로 1부터 시작)
+    max_day = rest_day[0]
+    cnt = 1
+    for i in range(1, len(rest_day)):
+        print(i)
+    #4.첫 값을 max값으로 잡고 순회하며 그 값보다 작으면 +1
+        if max_day >= rest_day[i]:
+            cnt +=1
+    #5. 그 값보다 크면 answer에 값을 넣고 max값을 업데이트
+        else:
+            answer.append(cnt)
+            max_day = rest_day[i]
+            cnt = 1
+    answer.append(cnt)
     return answer
