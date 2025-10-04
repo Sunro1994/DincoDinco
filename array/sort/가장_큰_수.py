@@ -1,30 +1,28 @@
+# 1. functools를 import
 import functools
-
-def compare(x,y):
+# 2. 정렬 custom 함수를 생성
+def sort(x,y):
     xy = x+y
     yx = y+x
 
-    # yx가 더 크면 1
-    if yx> xy:
+    if yx > xy:
         return 1
-    # 반대가 더 크면 -1
-    elif yx< xy:
+    elif yx < xy:
         return -1
-    # 같으면 0
     else:
         return 0
 
 
+# 3. 숫자를 문자열로 변환한 배열을 생성
 def solution(numbers):
-    str_numbers = [str(x) for x in numbers]
-
-    str_numbers.sort(key = functools.cmp_to_key(compare))
-
-    answer = "".join(str_numbers)
-
-    answer = str(int(answer))
-
-
-    return answer
+    str_arr = [str(x) for x in numbers]
+# 4. custom한 내용으로 정렬
+    str_arr.sort(key = functools.cmp_to_key(sort))
+# 5. ""으로 join
+    answer= "".join(str_arr)
+# 6. 반환
+    return str(int(answer))
 
 
+
+print(solution([6, 10, 2]	))
